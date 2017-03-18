@@ -2,6 +2,7 @@ package org.compi2.codigo3d;
 
 import java.io.BufferedReader;
 import java.io.StringReader;
+import javax.swing.JOptionPane;
 import org.compi2.codigo3d.parser.ControlC3D;
 import org.compi2.codigo3d.parser.parser;
 import org.compi2.codigo3d.parser.scanner;
@@ -29,6 +30,9 @@ public class Inicio extends javax.swing.JFrame {
         jTextField_Expresion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_Codigo3Dgenerado = new javax.swing.JTextArea();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        menuHelp = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +51,24 @@ public class Inicio extends javax.swing.JFrame {
         jTextArea_Codigo3Dgenerado.setRows(5);
         jScrollPane1.setViewportView(jTextArea_Codigo3Dgenerado);
 
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        menuHelp.setText("Help");
+        menuHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuHelpMouseClicked(evt);
+            }
+        });
+        menuHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuHelpActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menuHelp);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -64,7 +86,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(jTextField_Expresion, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                     .addComponent(jButton_GenerarC3D, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,6 +112,26 @@ public class Inicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton_GenerarC3DActionPerformed
 
+    private void menuHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHelpActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_menuHelpActionPerformed
+
+    private void menuHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuHelpMouseClicked
+        // TODO add your handling code here:
+        String cadena = "ingrear codigo en la area de texto para generar codigo 3d:\n";
+        cadena += "5 + a * b < a + 1 && b > 5";
+        cadena += "salida:\n";
+        cadena += "t$0 = a * b;\n" +
+"t$1 = 5 + t$0;\n" +
+"t$2 = a + 1;\n" +
+"t$3 = t$1 < t$2;\n" +
+"t$4 = b > 5;\n" +
+"t$5 = t$3 && t$4;";
+        
+        JOptionPane.showMessageDialog(null ,cadena);
+    }//GEN-LAST:event_menuHelpMouseClicked
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -111,8 +153,11 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_GenerarC3D;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea_Codigo3Dgenerado;
     private javax.swing.JTextField jTextField_Expresion;
+    private javax.swing.JMenu menuHelp;
     // End of variables declaration//GEN-END:variables
 }

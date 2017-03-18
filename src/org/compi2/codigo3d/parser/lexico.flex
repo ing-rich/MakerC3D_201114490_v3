@@ -26,6 +26,21 @@ POT             = "^"
 PAR_IZQ         = "("
 PAR_DER         = ")"
 
+MAYOR		=	">"
+MENOR		=	"<"
+MAYOR_IGUAL = 	">="
+MENOR_IGUAL = 	"<="
+DIFERENTE 	= 	"!="
+
+L_OR		= 	"||"
+L_AND		= 	"&&"
+L_XOR		=	"&|"
+L_NOT		= 	"!"
+
+
+
+
+
 ID              = [A-Za-z][_0-9A-Za-z]*
 ENTERO          = [0-9]+
 DECIMAL         = [0-9]+"."[0-9]+
@@ -39,12 +54,24 @@ ENTER   = [\ \n]
 <YYINITIAL> {ENTERO}        { return new Symbol(sym.ENTERO, yyline, yycolumn, yytext()); }
 <YYINITIAL> {DECIMAL}       { return new Symbol(sym.DECIMAL, yyline, yycolumn, yytext()); }
 <YYINITIAL> {MAS}           { return new Symbol(sym.MAS, yyline, yycolumn, null); }
-<YYINITIAL> {MENOS}	    { return new Symbol(sym.MENOS, yyline, yycolumn, null); }
+<YYINITIAL> {MENOS}	    	{ return new Symbol(sym.MENOS, yyline, yycolumn, null); }
 <YYINITIAL> {MULT}          { return new Symbol(sym.MULT, yyline, yycolumn, null); }
-<YYINITIAL> {DIV}	    { return new Symbol(sym.DIV, yyline, yycolumn, null); }
-<YYINITIAL> {POT}	    { return new Symbol(sym.POT, yyline, yycolumn, null); }
+<YYINITIAL> {DIV}	    	{ return new Symbol(sym.DIV, yyline, yycolumn, null); }
+<YYINITIAL> {POT}	    	{ return new Symbol(sym.POT, yyline, yycolumn, null); }
 <YYINITIAL> {PAR_IZQ}	    { return new Symbol(sym.PAR_IZQ, yyline, yycolumn, null); }
 <YYINITIAL> {PAR_DER}	    { return new Symbol(sym.PAR_DER, yyline, yycolumn, null); }
+
+<YYINITIAL> {MAYOR}	    	{ return new Symbol(sym.MAYOR, yyline, yycolumn, null); }
+<YYINITIAL> {MENOR}	    	{ return new Symbol(sym.MENOR, yyline, yycolumn, null); }
+<YYINITIAL> {MAYOR_IGUAL}   { return new Symbol(sym.MAYOR_IGUAL, yyline, yycolumn, null); }
+<YYINITIAL> {MENOR_IGUAL}   { return new Symbol(sym.MENOR_IGUAL, yyline, yycolumn, null); }
+<YYINITIAL> {DIFERENTE}	  	{ return new Symbol(sym.DIFERENTE, yyline, yycolumn, null); }
+
+<YYINITIAL> {L_OR}	    { return new Symbol(sym.L_OR, yyline, yycolumn, null); }
+<YYINITIAL> {L_AND}	    { return new Symbol(sym.L_AND, yyline, yycolumn, null); }
+<YYINITIAL> {L_XOR}	    { return new Symbol(sym.L_XOR, yyline, yycolumn, null); }
+<YYINITIAL> {L_NOT}	    { return new Symbol(sym.L_NOT, yyline, yycolumn, null); }
+
 
 <YYINITIAL> {SPACE}     { /*Espacios en blanco, ignorados*/ }
 <YYINITIAL> {ENTER}     { /*Saltos de linea, ignorados*/}
