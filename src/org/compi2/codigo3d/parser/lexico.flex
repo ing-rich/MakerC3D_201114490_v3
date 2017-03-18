@@ -31,10 +31,10 @@ MENOR		=	"<"
 MAYOR_IGUAL = 	">="
 MENOR_IGUAL = 	"<="
 DIFERENTE 	= 	"!="
+IGUAL_IGUAL = 	"=="
 
 L_OR		= 	"||"
 L_AND		= 	"&&"
-L_XOR		=	"&|"
 L_NOT		= 	"!"
 
 
@@ -66,10 +66,10 @@ ENTER   = [\ \n]
 <YYINITIAL> {MAYOR_IGUAL}   { return new Symbol(sym.MAYOR_IGUAL, yyline, yycolumn, null); }
 <YYINITIAL> {MENOR_IGUAL}   { return new Symbol(sym.MENOR_IGUAL, yyline, yycolumn, null); }
 <YYINITIAL> {DIFERENTE}	  	{ return new Symbol(sym.DIFERENTE, yyline, yycolumn, null); }
+<YYINITIAL> {IGUAL_IGUAL}	{ return new Symbol(sym.IGUAL_IGUAL, yyline, yycolumn, null); }
 
 <YYINITIAL> {L_OR}	    { return new Symbol(sym.L_OR, yyline, yycolumn, null); }
 <YYINITIAL> {L_AND}	    { return new Symbol(sym.L_AND, yyline, yycolumn, null); }
-<YYINITIAL> {L_XOR}	    { return new Symbol(sym.L_XOR, yyline, yycolumn, null); }
 <YYINITIAL> {L_NOT}	    { return new Symbol(sym.L_NOT, yyline, yycolumn, null); }
 
 
